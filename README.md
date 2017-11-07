@@ -4,11 +4,12 @@ A single HTML component supporting multiple input types, select, textarea, radio
 
 # Installation
 
-`npm install tlx`
+`npm install tlx-editor`
+
 
 # Usage
 
-Load the files you need from the `node_modules/tlx/browser` and `./browser` directories. Or, copy files around as you need to fit your file system structure.
+Load the files you need from the `node_modules/tlx/browser/tlx.js` and `./browser/tlx-editor.js` directories. Or, copy files around as you need to fit your file system structure.
 
 Use the custom tag `<tlx-input>` in place of `<input>`, `<select>` and `<textarea>`. Fields will behave like they are in a form and use native validation styling even if you do not put them inside a form tag.
 
@@ -24,7 +25,7 @@ All the base values for the `<input>` attribute `type` supported by your browser
 
 5) `type="textarea"` where you you would normally use `<textarea>`.
 
-Since not all browsers support custom elements, you must perform an initial transform on the page. Once all browsers support custom elements, `tlx` will be enhanced to take advantage of it. For now, using `onload` will work:
+Since not all browsers support custom elements, you must perform an initial transform on the page. Once all browsers support custom elements, `tlx` will be enhanced to take advantage of it. See the [tlx documentation](https://github.com/anywhichway/tlx) for more detail. For now, using `onload` will work:
 
 ```html
 <body onload="tlx(document.getElementById('app'))">
