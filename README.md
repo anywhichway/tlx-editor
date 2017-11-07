@@ -26,7 +26,7 @@ All the base values for the `<input>` attribute `type` supported by your browser
 
 Since not all browsers support custom elements, you must perform an initial transform on the page. Once all browsers support custom elements, `tlx` will be enhanced to take advantage of it. For now, using `onload` will work:
 
-```
+```html
 <body onload="tlx(document.getElementById('app'))">
 <div id="app">
 ... your html here ...
@@ -37,7 +37,7 @@ Since not all browsers support custom elements, you must perform an initial tran
 Below is a more complete example from the `examples` directory:
 
 
-```
+```html
 <html>
 <head>
 <script src="../node_modules/tlx/browser/tlx.js"></script>
