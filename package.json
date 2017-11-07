@@ -1,0 +1,40 @@
+{
+  "name": "tlx-editor",
+  "version": "0.1.0",
+  "description": "A single HTML component supporting all input types, select, textarea, radio groups, and star ratings.",
+  "engines": {},
+  "license": "MIT",
+  "scripts": {
+    "prepare": "cp index.js ./browser/tlx-editor.js && uglifyjs browser/tlx-editor.js -o browser/tlx-editor.min.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anywhichway/tlx-editor.git"
+  },
+  "keywords": [
+    "JSX",
+    "React",
+    "preact",
+    "hyperhtml",
+    "hyperapp",
+    "VUE"
+  ],
+  "author": "Simon Y. Blackwell <syblackwell@anywhichway.com> (http://www.github.com/anywhichway)",
+  "bugs": {
+    "url": "https://github.com/anywhichway/tlx-editor/issues"
+  },
+  "homepage": "https://github.com/anywhichway/tlx-editor#readme",
+  "devDependencies": {
+    "benchmark": "^2.1.3",
+    "blanket": "^1.2.3",
+    "chai": "^3.4.1",
+    "codacy-coverage": "^2.0.0",
+    "codeclimate-test-reporter": "^0.2.0",
+    "istanbul": "^0.4.2",
+    "mocha": "^2.3.4",
+    "uglify-es": "^3.1.6"
+  },
+  "dependencies": {
+    "tlx": "^0.1.3"
+  }
+}
