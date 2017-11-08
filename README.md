@@ -35,7 +35,11 @@ Since not all browsers support custom elements, you must perform an initial tran
 </body>
 ```
 
-Below is a more complete example from the `examples` directory. The use of JavaScript template literals is optional.
+Below is an example screen showing several editors:
+
+![example screen](examples/result.png?raw=true)
+
+Below is the code from `examples/index.html`. The use of JavaScript template literals is optional.
 
 
 ```html
