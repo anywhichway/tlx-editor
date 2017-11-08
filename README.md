@@ -35,7 +35,7 @@ Since not all browsers support custom elements, you must perform an initial tran
 </body>
 ```
 
-Below is a more complete example from the `examples` directory:
+Below is a more complete example from the `examples` directory. The use of JavaScript template literals is optional.
 
 
 ```html

@@ -21,7 +21,7 @@
 		}
 		render(attributes) {
 			// if already inside a form, then fields do not need to be wrapped in forms
-			const isform = !formChild(this);
+			const isform = formChild(this);
 			if(!attributes) { // if attributes not passed, then get them from the parent custom tag
 				attributes = {};
 				for(let attribute of [].slice.call(this.attributes)) {
@@ -43,8 +43,7 @@
 				const name = Date.now()+(String(Math.random()).substring(2)); 
 				vnode = tlx`<span><label style="padding-right:.5em"></label> <span>${attributes.options.map(value => (tlx`<span><input type="radio" name="${name}" value="${value}">${value}</input></span>`))}</span></span>`;
 			} else if(type==="textarea") {
-				const elementtext = `<span>${isform ? "<form>" : ""}<label style="padding-right:.5em"></label> <textarea style="vertical-align:top;" ${this.options ? "required" : ""}></textarea>${isform ? "</form>" : ""}</span>`;
-				vnode = Function("return tlx`"+elementtext+"`").call(this);
+				vnode = tlx`<span><label style="padding-right:.5em"></label> <textarea style="vertical-align:top;" ${this.options ? "required" : ""}></textarea></span>`;
 			} else if(type==="rating") {
 				const stars = [],
 					max = (attributes.max || 5)+1,
@@ -61,10 +60,9 @@
 					me.value = tlx.fromJSON(event.target.value);
 					me.onchange(event);
 				};
-				vnode = tlx`<span>${isform ? "<form>" : ""}<label style="padding-right:.5em"></label> <span>${stars.map((star,i) => tlx`<a href="javascript:false" style="text-decoration:none;color:inherit" value="${i+1}" onclick="${onClick}">${star}</href>`)}</span>${isform ? "</form>" : ""}</span>`;
+				vnode = tlx`<span><label style="padding-right:.5em"></label> <span>${stars.map((star,i) => tlx`<a href="javascript:false" style="text-decoration:none;color:inherit" value="${i+1}" onclick="${onClick}">${star}</href>`)}</span></span>`;
 			} else {
-				const elementtext = `<span>${isform ? "<form>" : ""}<label style="padding-right:.5em"></label> <input type="${type}" ${this.options ? "required" : ""}>${isform ? "</form>" : ""}</span>`;
-				vnode = Function("return tlx`"+elementtext+"`").call(this);
+				vnode = tlx`<span><label style="padding-right:.5em"></label> <input type="${type}" ${this.options ? "required" : ""}></span>`;
 			}
 			// add all the passed attributes except label to the input element
 			for(let name in attributes) {
@@ -81,6 +79,12 @@
 						}
 					}
 				}
+			}
+			// splice in a form if not already a form
+			if(!isform) {
+				const form = new tlx.VNode({nodeName:"form",attributes:{}});
+				form.children = vnode.children;
+				vnode.children = [form];
 			}
 			return vnode;
 		}
