@@ -17,9 +17,9 @@ All the base values for the `<input>` attribute `type` supported by your browser
 
 1) `type="rating"` for a star rating. It defaults to 5 stars, but you can add more by setting the attribute `max` to a value.
 
-2) `type="radiogroup"` with the attribute `options=[<some values>...]`. Optionally provide a `value` to have it pre-selected.
+2) `type="radiogroup"` with the attribute `options="[<some values>...]"`. Optionally provide a `value` to have it pre-selected.
 
-3) `type="select-one"` with the attribute `options=[<some values>...]` for a single value select. Optionally provide a `value` to have it pre-selected.
+3) `type="select-one"` with the attribute `options="[<some values>...]"` for a single value select. Optionally provide a `value` to have it pre-selected.
 
 4) `type="select-multiple"`, also with the attribute `options`. Optionally provide an array for `value` to have them pre-selected, e.g. `value="[1,3]"`.
 
