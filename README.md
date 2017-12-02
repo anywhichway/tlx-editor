@@ -39,7 +39,7 @@ Below is an example screen showing several editors:
 
 ![example screen](examples/result.png?raw=true)
 
-Below is the code from `examples/index.html`. The use of JavaScript template literals is optional.
+Below is the code from `examples/index.html`. The use of JavaScript template literals requring `tlx` processing is optional.
 
 
 ```html
@@ -89,9 +89,11 @@ input:invalid {border: 2px solid red;}
 
 1) We needed a simple way to put edit controls in a table in a uniform way to simulate a spreadsheet.
 
-2) Over time we will enhance the control to provide cross browsers support fro unsupported special types, e.g. date calendars are not supported in Firefox. we will also add additional types, e.g. `range`, which will operate like a like a tow sides slider with an array as a value containing its selected min and max rather than absolute min and max.
+2) Over time we will enhance the control to provide cross browsers support for unsupported special types, e.g. date calendars are not supported in Firefox. we will also add additional types, e.g. `range`, which will operate like a like a tow sides slider with an array as a value containing its selected min and max rather than absolute min and max.
 
 
 # Release History
+
+2017-12-02 v0.1.1 Updated for compatibility with tlx v0.1.7
 
 2017-11-07 v0.1.0 Initial public release

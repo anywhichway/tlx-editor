@@ -1,6 +1,6 @@
 {
   "name": "tlx-editor",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A single HTML component supporting all input types, select, textarea, radio groups, and star ratings.",
   "engines": {},
   "license": "MIT",
@@ -32,9 +32,9 @@
     "codeclimate-test-reporter": "^0.2.0",
     "istanbul": "^0.4.2",
     "mocha": "^2.3.4",
-    "uglify-es": "^3.1.6"
+    "uglify-es": "^3.2.0"
   },
   "dependencies": {
-    "tlx": "^0.1.4"
+    "tlx": "^0.1.7"
   }
 }

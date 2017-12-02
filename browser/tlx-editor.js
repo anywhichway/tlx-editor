@@ -5,13 +5,20 @@
 		if(element.parentElement instanceof HTMLFormElement) return true;
 		return formChild(element.parentElement);
 	}
-	class tlxEditor extends tlx.Component {
+	class tlxEditor extends HTMLElement {
 		static get attributes() {
 			return {
-				label: "",
-				type: "text"
+				
 			}
 		}
+		 static create(config,el=document.createElement("tlx-chart")) {
+			 Object.setPrototypeOf(el,tlxEditor.prototype);
+			 for(let key in tlxEditor.attributes) {
+				 tlx.setAttribute(el,key,tlxEditor.attributes[key]);
+			 }
+			 Object.assign(el,config);
+			 return el;
+		 }
 		linkState(property) {
 			const node = this,
 				f = super.linkState(property);
@@ -30,7 +37,7 @@
 			}
 			// resolve options, which is a special addition that supports validation on input fields, e.g. typing in a specific value
 			!attributes.options || (this.options = attributes.options = tlx.resolve(attributes.options,this));
-			// resolve value which is needed for raiogroup handling
+			// resolve value which is needed for radiogroup handling
 			!attributes.value || (this.value = tlx.resolve(attributes.value,this));
 			const type = attributes.type;
 			let vnode;
@@ -59,6 +66,7 @@
 				function onClick(event) {
 					me.value = tlx.fromJSON(event.target.value);
 					me.onchange(event);
+					return false;
 				};
 				vnode = tlx`<span><label style="padding-right:.5em"></label> <span>${stars.map((star,i) => tlx`<a href="javascript:false" style="text-decoration:none;color:inherit" value="${i+1}" onclick="${onClick}">${star}</href>`)}</span></span>`;
 			} else {
@@ -114,7 +122,8 @@
 			return true;
 		}
 	}
-	document.registerTlxComponent("tlx-editor",tlxEditor);
+	//document.registerTlxComponent("tlx-editor",tlxEditor);
+	customElements.define("tlx-editor",tlxEditor);
 	
 	if(typeof(module)!=="undefined") module.exports = tlxEditor;
 	if(typeof(window)!=="undefined") window.tlxEditor = tlxEditor;

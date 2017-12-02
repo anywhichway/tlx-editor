@@ -1,12 +1,12 @@
 <html>
 <head>
 <script src="../node_modules/tlx/browser/tlx.js"></script>
-<script src="../browser/tlx-editor.js"></script>
+<script src="../index.js"></script>
 <style>
 input:invalid {border: 2px solid red;}
 </style>
 </head>
-<body onload="tlx.bind({name:'Joe',age:20,honorific:'Mx.',seatingPreferences:['aisle','exit'],optIn:true,tier:'gold',notes:'',attest:'',rating:3})(document.getElementById('page'))">
+<body>
 <div id="page">
 	<form>
 	<p><tlx-editor type="text" value="${name}" label="Name:" t-on="${{input:this.linkState('name')}}" required></tlx-editor></p>
@@ -22,6 +22,9 @@ input:invalid {border: 2px solid red;}
 	</form>
 	<p>${honorific} ${name}, a ${rating} star customer, has opted ${(optIn ? "in" : "out")} and prefers the following seating: ${seatingPreferences.join(", ")} with ${tier} tier priority.</p>
 	<table><tr><td>Notes: </td><td>${notes}</td></table>
-	</body>
 </div>
+<script>
+	tlx.bind({name:'Joe',age:20,honorific:'Mx.',seatingPreferences:['aisle','exit'],optIn:true,tier:'gold',notes:'',attest:'',rating:3})(document.getElementById('page'));
+</script>
+</body>
 </html>
